@@ -9,14 +9,25 @@ public class EventLog {
 
     private List<Event> eventList;
 
-    public boolean addEvent(Event event){
-        if (event == null || event.name == null || event.action == null){
-            throw new IllegalArgumentException("must have a name and action");
-        } else {
-            System.out.println(event);
-            eventList.add(event);
-            return true;
-        }
+    public boolean addEvent(Event event) throws IllegalArgumentException {
+            if (event == null || event.name == null || event.action == null){
+                throw new IllegalArgumentException();
+            } else if ((!(event.getAction() == "Face2Face") && !(event.getAction() == "PhoneCall") && !(event.getAction() == "TextMessaging") && !(event.getAction() == "Unknown"))) {
+                throw new IllegalArgumentException();
+            } else {
+                System.out.println("Here's the new event: " + event);
+                eventList.add(event);
+            }
+        return true;
+//        if (event == null || event.name == null || event.action == null){
+//            throw new IllegalArgumentException();
+//        } else if (event.action != eventActionOptions){
+//
+//        } else{
+//            System.out.println("Here's the new event: " + event);
+//            eventList.add(event);
+//        }
+//        return true;
     }
 
     public int getNumEvents(){
