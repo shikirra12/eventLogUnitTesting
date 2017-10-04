@@ -88,13 +88,27 @@ public class EventLogTest {
         parties.addEvent(eventOne);
         parties.addEvent(eventTwo);
 
-        try{
+
+        try {
             assertEquals(3, parties.getNumEvents());
         } catch (Exception x){
             assertFalse(false);
             fail("Did not work");
         }
 
+        try {
+            assertEquals("Test Event", "Test Event" );
+        } catch (Exception x) {
+            assertFalse(false);
+            fail("Did not work");
+        }
+
+        try {
+            assertFalse(false);
+        } catch (Exception x) {
+            assertEquals("Make it work", "Testing Event");
+            fail("Did not work");
+        }
     }
 
 }
